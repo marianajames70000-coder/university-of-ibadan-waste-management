@@ -1,0 +1,9 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Municipal Waste Management{% endblock %}</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head><body>
+<header><a class="brand" href="/">&#9851; Municipal Waste Management</a>
+<nav>{% if user %}{% if user.role=='admin' %}<a href="{{ url_for('staff.dashboard') }}">Dashboard</a><a href="{{ url_for('staff.bins') }}">Bins</a><a href="{{ url_for('staff.routes') }}">Routes</a><a href="{{ url_for('staff.reports') }}">Dumping reports</a><a href="{{ url_for('staff.recycling') }}">Recycling</a><a href="{{ url_for('staff.analytics') }}">Analytics</a><a href="{{ url_for('staff.users') }}">Users</a><a href="{{ url_for('staff.audit_log') }}">Audit log</a>
+{% elif user.role=='collector' %}<a href="{{ url_for('staff.my_routes') }}">My routes</a><a href="{{ url_for('staff.recycling') }}">Recycling</a>
+{% else %}<a href="{{ url_for('resident.dashboard') }}">My requests</a>{% endif %}
+<form method="post" action="{{ url_for('auth.logout') }}" class="inline"><input type="hidden" name="csrf" value="{{ csrf }}"><button>Sign out ({{ user.name }})</button></form>
+{% else %}<a href="{{ url_for('auth.login') }}">Sign in</a><a href="{{ url_for('auth.register') }}">Register</a>{% endif %}</nav></header>
+<main>{% for c,m in get_flashed_messages(with_categories=true) %}<div class="flash {{ c }}">{{ m }}</div>{% endfor %}{% block body %}{% endblock %}</main></body></html>
