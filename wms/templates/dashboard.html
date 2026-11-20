@@ -1,0 +1,5 @@
+{% extends 'base.html' %}{% block body %}<h1>Operations dashboard</h1><div class="grid">
+<div class="stat"><b>{{ stats.bins }}</b>Monitored bins</div><div class="stat warn"><b>{{ stats.full }}</b>Bins at or above {{ th }}%</div><div class="stat"><b>{{ stats.pending }}</b>Pending pickups</div>
+<div class="stat warn"><b>{{ stats.open_reports }}</b>Open dumping reports</div><div class="stat"><b>{{ stats.active_routes }}</b>Active routes</div><div class="stat"><b>{{ '%.0f'|format(stats.collected_kg) }} kg</b>Collected to date</div></div>
+<h2>Bins needing collection</h2><div class="card"><table><tr><th>Bin</th><th>Zone</th><th>Type</th><th>Fill level</th></tr>{% for b in alerts %}<tr><td>{{ b.label }}</td><td>{{ b.zone }}</td><td>{{ b.kind }}</td><td><meter min="0" max="100" low="60" high="79" optimum="10" value="{{ b.fill_pct }}"></meter> {{ b.fill_pct }}%</td></tr>{% else %}<tr><td colspan="4" class="muted">No bins above the threshold.</td></tr>{% endfor %}</table></div>
+<a class="btn" href="{{ url_for('staff.routes') }}">Plan a collection route</a>{% endblock %}
