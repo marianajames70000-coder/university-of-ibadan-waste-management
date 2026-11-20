@@ -1,0 +1,61 @@
+{
+ "zones": [
+  {
+   "zone": "UI Campus",
+   "stops": 2,
+   "nn": 1.52,
+   "naive": 1.52,
+   "random": 1.52,
+   "optimal": 1.52
+  },
+  {
+   "zone": "Agbowo",
+   "stops": 4,
+   "nn": 10.29,
+   "naive": 10.7,
+   "random": 10.52,
+   "optimal": 10.16
+  },
+  {
+   "zone": "Bodija",
+   "stops": 5,
+   "nn": 16.38,
+   "naive": 16.86,
+   "random": 16.74,
+   "optimal": 15.96
+  },
+  {
+   "zone": "Sango",
+   "stops": 3,
+   "nn": 12.76,
+   "naive": 12.87,
+   "random": 13.43,
+   "optimal": 12.76
+  },
+  {
+   "zone": "Mokola",
+   "stops": 2,
+   "nn": 12.68,
+   "naive": 12.68,
+   "random": 12.68,
+   "optimal": 12.68
+  }
+ ],
+ "synthetic": {
+  "6": {
+   "nn": 28.51,
+   "unordered": 39.25,
+   "saving_pct": 27.4
+  },
+  "10": {
+   "nn": 36.38,
+   "unordered": 62.44,
+   "saving_pct": 41.7
+  },
+  "15": {
+   "nn": 44.27,
+   "unordered": 90.28,
+   "saving_pct": 51.0
+  }
+ }
+}
